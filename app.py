@@ -68,3 +68,5 @@ if __name__ == "__main__":
     init_db()
     # Diperlukan agar Flask dapat diakses melalui port Docker.
     app.run(host="0.0.0.0", port=5000)  # nosemgrep
+
+# Pengujian Branch Protection Rules
