@@ -1,13 +1,11 @@
-
-"""Modul backend autentikasi Flask."""
-
+import os
 import sqlite3
 
-from flask_wtf.csrf import CSRFProtect
 from flask import Flask, render_template, request
+from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "kunci-rahasia-untuk-praktikum"
+app.config["SECRET_KEY"] = os.environ["SECRET_KEY"]
 CSRFProtect(app)
 
 def init_db():

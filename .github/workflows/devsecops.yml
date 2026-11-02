@@ -54,9 +54,15 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build and Run Container
+        env:
+          FLASK_SECRET_KEY: ${{ secrets.FLASK_SECRET_KEY }}
         run: |
           docker build -t secure-flask-app:latest .
           docker stop web-flask || true
           docker rm web-flask || true
-          docker run -d -p 5000:5000 --name web-flask secure-flask-app:latest
+          docker run -d \
+            -p 5000:5000 \
+            -e SECRET_KEY="$FLASK_SECRET_KEY" \
+            --name web-flask \
+            secure-flask-app:latest
           docker ps | grep web-flask
