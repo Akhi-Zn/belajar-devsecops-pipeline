@@ -3,10 +3,12 @@
 
 import sqlite3
 
+from flask_wtf.csrf import CSRFProtect
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
-
+app.config["SECRET_KEY"] = "kunci-rahasia-untuk-praktikum"
+CSRFProtect(app)
 
 def init_db():
     """Membuat tabel pengguna dan data awal."""

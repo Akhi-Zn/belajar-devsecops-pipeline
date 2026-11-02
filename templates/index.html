@@ -63,7 +63,10 @@
     <div class="container">
         <h2>Secure Flask Login</h2>
 
+        <!-- nosemgrep: python.django.security.django-no-csrf-token.django-no-csrf-token -->
         <form method="POST" action="/">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
             <input
                 type="text"
                 name="username"
