@@ -69,4 +69,4 @@ if __name__ == "__main__":
     # Diperlukan agar Flask dapat diakses melalui port Docker.
     app.run(host="0.0.0.0", port=5000)  # nosemgrep
 
-# Pengujian Branch Protection Rules
+# Pengujian Branch Protection Rules New
